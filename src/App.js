@@ -10,29 +10,42 @@ const TEXT_MUTED = '#808080';
 function Welcome({ onNext }) {
   return (
     <div style={{
-      width: '100%', height: '100dvh', background: '#000', display: 'flex',
-      flexDirection: 'column', position: 'relative', overflow: 'hidden',
-      paddingLeft: '28px', paddingRight: '28px',
+      width: '100%', 
+      height: '100dvh', 
+      // html 메타 태그와 시너지를 내서 하단 끝까지 채워질 전체 배경 그라데이션
+      background: 'linear-gradient(to bottom, #000000 50%, #061512 80%, #0b0914 100%)', 
+      display: 'flex',
+      flexDirection: 'column', 
+      position: 'relative', 
+      overflow: 'hidden',
+      paddingLeft: '28px', 
+      paddingRight: '28px',
       paddingTop: 'max(48px, env(safe-area-inset-top))',
-      paddingBottom: 'max(32px, env(safe-area-inset-bottom))',
+      // viewport-fit=cover 일 때 버튼이 홈 바에 안 겹치도록 안전 마진 확보
+      paddingBottom: 'max(40px, env(safe-area-inset-bottom))', 
     }}>
+      {/* 배경 조명들 */}
       <div style={{ position:'absolute', top:'-100px', right:'-60px', width:'300px', height:'300px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(70px)', opacity:0.4, pointerEvents:'none' }} />
       <div style={{ position:'absolute', top:'30%', left:'-100px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,#6ee7b7 0%,transparent 70%)', filter:'blur(70px)', opacity:0.3, pointerEvents:'none' }} />
       
-      {/* 🛠 하단 조명 수정: 크기를 키우고 blur와 위치를 조절해서 화면 맨 밑까지 그라데이션이 차오르도록 함 */}
-      <div style={{ position:'absolute', bottom:'-120px', right:'-20px', width:'350px', height:'350px', borderRadius:'50%', background:'radial-gradient(circle,#f9a8d4 0%,transparent 75%)', filter:'blur(90px)', opacity:0.4, pointerEvents:'none' }} />
-      <div style={{ position:'absolute', bottom:'-120px', left:'-20px', width:'350px', height:'350px', borderRadius:'50%', background:'radial-gradient(circle,#6ee7b7 0%,transparent 75%)', filter:'blur(90px)', opacity:0.35, pointerEvents:'none' }} />
+      <div style={{ position:'absolute', bottom:'-150px', right:'-50px', width:'400px', height:'400px', borderRadius:'50%', background:'radial-gradient(circle,#f9a8d4 0%,transparent 70%)', filter:'blur(100px)', opacity:0.35, pointerEvents:'none' }} />
+      <div style={{ position:'absolute', bottom:'-150px', left:'-50px', width:'400px', height:'400px', borderRadius:'50%', background:'radial-gradient(circle,#6ee7b7 0%,transparent 70%)', filter:'blur(100px)', opacity:0.3, pointerEvents:'none' }} />
 
+      {/* 상단 타이틀 */}
       <div style={{ display:'flex', alignItems:'center', gap:'8px', position:'relative', zIndex:1, flexShrink:0 }}>
         <div style={{ width:'6px', height:'6px', borderRadius:'50%', background:GRADIENT }} />
         <p style={{ fontSize:'10px', letterSpacing:'0.3em', fontWeight:900, textTransform:'uppercase', color:TEXT_MUTED, margin:0 }}>
           Vocal Practice Manager
         </p>
       </div>
+
+      {/* 캐릭터 영역 */}
       <div style={{ flex:1, display:'flex', alignItems:'center', justifyContent:'center', position:'relative', zIndex:1 }}>
         <div style={{ position:'absolute', width:'260px', height:'260px', borderRadius:'50%', background:GRADIENT, filter:'blur(60px)', opacity:0.5 }} />
         <img src="/yuwol.png" alt="유월이" style={{ width:'260px', height:'260px', objectFit:'contain', position:'relative', zIndex:1, filter:'drop-shadow(0 0 20px rgba(167,139,250,0.5))' }} />
       </div>
+
+      {/* 하단 텍스트 및 버튼 */}
       <div style={{ position:'relative', zIndex:1, flexShrink:0 }}>
         <p style={{ fontSize:'14px', letterSpacing:'0.25em', fontWeight:900, textTransform:'uppercase', margin:'0 0 8px', background:GRADIENT, WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>
           YUWOL
