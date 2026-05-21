@@ -12,27 +12,30 @@
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       
-      /* 1. 껍데기(body)는 화면에 완전 고정: 여기서 바운스와 전체 화면 흔들림을 원천 차단해. */
-      html, body {
-        width: 100%;
-        height: 100%; /* dvh 대신 100% 사용 */
-        background: #000;
-        overflow: hidden; /* 화면 전체가 스크롤되는 것 방지 */
-        overscroll-behavior: none; /* 고무줄 바운스 효과 제거 */
+      html {
+        background-color: #000;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        
+        /* 🛠 핵심 1: 아이폰 화면 계산 버그를 부수는 마법의 속성 */
+        min-height: 100vh; /* 다른 폰들을 위한 기본값 */
+        min-height: -webkit-fill-available; /* 아이폰은 무조건 빈틈없이 꽉 채움 */
+        
+        /* 🛠 핵심 2: 바운스(고무줄) 현상 제거 (스크롤은 정상 작동함) */
+        overscroll-behavior-y: none;
         -webkit-tap-highlight-color: transparent;
       }
 
-      /* 2. 알맹이(root)는 사방으로 꽉 채우고, 길어질 때만 내부 스크롤 허용! */
       #root {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0; /* 100dvh 버그 우회: 화면 끝부터 끝까지 핀셋으로 찝듯 고정 */
-        
-        overflow-y: auto; /* 내용이 길면 이 안에서만 부드럽게 스크롤됨 */
-        -webkit-overflow-scrolling: touch; /* 아이폰 특유의 부드러운 가속 스크롤 지원 */
-        overscroll-behavior-y: contain; /* 안에서 스크롤 끝까지 내려도 바깥 화면이 들썩이지 않게 막음 */
+        width: 100%;
+        min-height: 100vh;
+        min-height: -webkit-fill-available; /* 루트 컨테이너도 빈틈없이 쫙 늘림 */
+        display: flex;
+        flex-direction: column;
       }
     </style>
   </head>
