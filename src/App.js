@@ -26,9 +26,8 @@ function Welcome({ onNext }) {
         paddingLeft: '28px',
         paddingRight: '28px',
 
-        /* 상단 여백 살짝 줄임 */
-        paddingTop: '36px',
-        paddingBottom: '24px',
+        paddingTop: '70px',
+        paddingBottom: '26px',
 
         boxSizing: 'border-box',
 
@@ -40,8 +39,8 @@ function Welcome({ onNext }) {
       <div
         style={{
           position: 'absolute',
-          top: '-90px',
-          right: '-50px',
+          top: '-60px',
+          right: '-40px',
 
           width: '240px',
           height: '240px',
@@ -51,7 +50,7 @@ function Welcome({ onNext }) {
           background:
             'radial-gradient(circle,#a78bfa 0%,transparent 55%)',
 
-          filter: 'blur(50px)',
+          filter: 'blur(55px)',
 
           opacity: 0.18,
 
@@ -62,7 +61,7 @@ function Welcome({ onNext }) {
       <div
         style={{
           position: 'absolute',
-          top: '30%',
+          top: '35%',
           left: '-90px',
 
           width: '220px',
@@ -81,55 +80,13 @@ function Welcome({ onNext }) {
         }}
       />
 
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '-70px',
-          right: '8%',
-
-          width: '230px',
-          height: '230px',
-
-          borderRadius: '50%',
-
-          background:
-            'radial-gradient(circle,#f9a8d4 0%,transparent 55%)',
-
-          filter: 'blur(55px)',
-
-          opacity: 0.15,
-
-          pointerEvents: 'none',
-        }}
-      />
-
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '-60px',
-          left: '8%',
-
-          width: '220px',
-          height: '220px',
-
-          borderRadius: '50%',
-
-          background:
-            'radial-gradient(circle,#a78bfa 0%,transparent 55%)',
-
-          filter: 'blur(55px)',
-
-          opacity: 0.12,
-
-          pointerEvents: 'none',
-        }}
-      />
-
       {/* 상단 */}
       <div
         style={{
           position: 'relative',
           zIndex: 1,
+
+          marginBottom: '12px',
         }}
       >
         <div
@@ -154,7 +111,9 @@ function Welcome({ onNext }) {
               letterSpacing: '0.3em',
               fontWeight: 900,
               textTransform: 'uppercase',
+
               color: TEXT_MUTED,
+
               margin: 0,
             }}
           >
@@ -163,13 +122,10 @@ function Welcome({ onNext }) {
         </div>
       </div>
 
-      {/* 중간 */}
+      {/* 캐릭터 */}
       <div
         style={{
-          height: '320px',
-
-          /* 캐릭터 전체 아래로 */
-          marginTop: '28px',
+          height: '360px',
 
           display: 'flex',
           alignItems: 'center',
@@ -177,20 +133,22 @@ function Welcome({ onNext }) {
 
           position: 'relative',
           zIndex: 1,
+
+          marginTop: '12px',
         }}
       >
         <div
           style={{
             position: 'absolute',
 
-            width: '220px',
-            height: '220px',
+            width: '240px',
+            height: '240px',
 
             borderRadius: '50%',
 
             background: GRADIENT,
 
-            filter: 'blur(45px)',
+            filter: 'blur(50px)',
 
             opacity: 0.18,
           }}
@@ -200,8 +158,8 @@ function Welcome({ onNext }) {
           src="/yuwol.png"
           alt="유월이"
           style={{
-            width: '220px',
-            height: '220px',
+            width: '235px',
+            height: '235px',
 
             objectFit: 'contain',
 
@@ -209,7 +167,7 @@ function Welcome({ onNext }) {
             zIndex: 1,
 
             filter:
-              'drop-shadow(0 0 12px rgba(167,139,250,0.28))',
+              'drop-shadow(0 0 12px rgba(167,139,250,0.25))',
           }}
         />
       </div>
@@ -219,8 +177,7 @@ function Welcome({ onNext }) {
         style={{
           marginTop: 'auto',
 
-          /* 하단 영역만 위로 */
-          transform: 'translateY(-28px)',
+          transform: 'translateY(-70px)',
 
           position: 'relative',
           zIndex: 1,
