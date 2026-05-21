@@ -148,8 +148,10 @@ export default function InviteCode({ onNext, onBack }) {
         </div>
 
         {/* 힌트 */}
-        <p style={{ textAlign:'center', fontSize:'11px', color:'#444', margin:'8px 0 0', flexShrink:0 }}>
-          Fmaj7(#11) · F · A · C · E · B
+        <p style={{ textAlign:'center', fontSize:'11px', color:'#666', margin:'8px 0 0', flexShrink:0 }}>
+  Hint : Fmaj7(#11)
+</p>
+
         </p>
 
       </div>
