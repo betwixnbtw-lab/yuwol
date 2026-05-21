@@ -15,12 +15,9 @@ function Welcome({ onNext }) {
     <div
       style={{
         width: '100%',
-        minHeight: '100dvh',
+        height: '100dvh',
 
         background: '#000',
-
-        display: 'flex',
-        flexDirection: 'column',
 
         position: 'relative',
 
@@ -30,9 +27,12 @@ function Welcome({ onNext }) {
         paddingRight: '28px',
 
         paddingTop: '36px',
-        paddingBottom: '20px',
+        paddingBottom: '24px',
 
         boxSizing: 'border-box',
+
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
       {/* Glow */}
@@ -41,19 +41,13 @@ function Welcome({ onNext }) {
           position: 'absolute',
           top: '-90px',
           right: '-50px',
-
           width: '240px',
           height: '240px',
-
           borderRadius: '50%',
-
           background:
             'radial-gradient(circle,#a78bfa 0%,transparent 55%)',
-
           filter: 'blur(50px)',
-
           opacity: 0.18,
-
           pointerEvents: 'none',
         }}
       />
@@ -63,63 +57,13 @@ function Welcome({ onNext }) {
           position: 'absolute',
           top: '30%',
           left: '-90px',
-
           width: '220px',
           height: '220px',
-
           borderRadius: '50%',
-
           background:
             'radial-gradient(circle,#6ee7b7 0%,transparent 55%)',
-
           filter: 'blur(50px)',
-
           opacity: 0.14,
-
-          pointerEvents: 'none',
-        }}
-      />
-
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '-70px',
-          right: '8%',
-
-          width: '230px',
-          height: '230px',
-
-          borderRadius: '50%',
-
-          background:
-            'radial-gradient(circle,#f9a8d4 0%,transparent 55%)',
-
-          filter: 'blur(55px)',
-
-          opacity: 0.15,
-
-          pointerEvents: 'none',
-        }}
-      />
-
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '-60px',
-          left: '8%',
-
-          width: '220px',
-          height: '220px',
-
-          borderRadius: '50%',
-
-          background:
-            'radial-gradient(circle,#a78bfa 0%,transparent 55%)',
-
-          filter: 'blur(55px)',
-
-          opacity: 0.12,
-
           pointerEvents: 'none',
         }}
       />
@@ -127,45 +71,45 @@ function Welcome({ onNext }) {
       {/* 상단 */}
       <div
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-
           position: 'relative',
           zIndex: 1,
-
-          flexShrink: 0,
         }}
       >
         <div
           style={{
-            width: '6px',
-            height: '6px',
-            borderRadius: '50%',
-            background: GRADIENT,
-          }}
-        />
-
-        <p
-          style={{
-            fontSize: '10px',
-            letterSpacing: '0.3em',
-            fontWeight: 900,
-            textTransform: 'uppercase',
-
-            color: TEXT_MUTED,
-
-            margin: 0,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
           }}
         >
-          Vocal Practice Manager
-        </p>
+          <div
+            style={{
+              width: '6px',
+              height: '6px',
+              borderRadius: '50%',
+              background: GRADIENT,
+            }}
+          />
+
+          <p
+            style={{
+              fontSize: '10px',
+              letterSpacing: '0.3em',
+              fontWeight: 900,
+              textTransform: 'uppercase',
+              color: TEXT_MUTED,
+              margin: 0,
+            }}
+          >
+            Vocal Practice Manager
+          </p>
+        </div>
       </div>
 
-      {/* 캐릭터 */}
+      {/* 중간 */}
       <div
         style={{
-          flex: 0.92,
+          height: '320px',
 
           display: 'flex',
           alignItems: 'center',
@@ -173,9 +117,6 @@ function Welcome({ onNext }) {
 
           position: 'relative',
           zIndex: 1,
-
-          paddingTop: '10px',
-          paddingBottom: '10px',
         }}
       >
         <div
@@ -216,10 +157,10 @@ function Welcome({ onNext }) {
       {/* 하단 */}
       <div
         style={{
+          marginTop: 'auto',
+
           position: 'relative',
           zIndex: 1,
-
-          flexShrink: 0,
         }}
       >
         <p
@@ -283,7 +224,6 @@ function Welcome({ onNext }) {
           당신은 매일 연습하고 있는가.
         </p>
 
-        {/* 버튼 */}
         <button
           onClick={onNext}
           style={{
@@ -349,9 +289,5 @@ export default function App() {
     );
   }
 
-  return (
-    <Welcome
-      onNext={() => setScreen('invite')}
-    />
-  );
+  return <Welcome onNext={() => setScreen('invite')} />;
 }
