@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#000000" />
     <link rel="apple-touch-icon" href="/icon.png" />
     <title>Yuwol</title>
@@ -12,30 +12,30 @@
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       
-      html {
+      /* 껍데기는 위아래 모서리에 못 박듯 고정. 여기서 화면 전체의 출렁임(바운스)을 1차 차단. */
+      html, body {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         background-color: #000;
-      }
-      
-      body {
-        margin: 0;
-        padding: 0;
-        background-color: #000;
-        
-        /* 🛠 핵심 1: 아이폰 화면 계산 버그를 부수는 마법의 속성 */
-        min-height: 100vh; /* 다른 폰들을 위한 기본값 */
-        min-height: -webkit-fill-available; /* 아이폰은 무조건 빈틈없이 꽉 채움 */
-        
-        /* 🛠 핵심 2: 바운스(고무줄) 현상 제거 (스크롤은 정상 작동함) */
-        overscroll-behavior-y: none;
+        overflow: hidden;
         -webkit-tap-highlight-color: transparent;
       }
 
+      /* 알맹이(#root)는 내용물 길이에 따라 똑똑하게 스크롤을 허용 */
       #root {
         width: 100%;
-        min-height: 100vh;
-        min-height: -webkit-fill-available; /* 루트 컨테이너도 빈틈없이 쫙 늘림 */
-        display: flex;
-        flex-direction: column;
+        height: 100%;
+        
+        /* 🛠 핵심: 내용이 길면 스크롤 O, 짧으면 스크롤 X */
+        overflow-y: auto; 
+        
+        /* 🛠 핵심: 내용이 짧은 화면(Welcome)에서 억지로 쓸어내렸을 때 들썩이는 고무줄 현상 2차 완벽 차단 */
+        overscroll-behavior-y: none; 
+        
+        -webkit-overflow-scrolling: touch;
       }
     </style>
   </head>
