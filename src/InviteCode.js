@@ -131,6 +131,7 @@ export default function InviteCode({ onNext, onBack }) {
               <button 
                 className="w-10 h-10 rounded-full flex items-center justify-center"
                 style={{ background: 'rgba(255,255,255,0.05)' }}
+                onClick={onBack}
               >
                 <ArrowLeft size={18} color={TEXT} />
               </button>
@@ -175,16 +176,16 @@ export default function InviteCode({ onNext, onBack }) {
                 }}
               >
                 Enter your{' '}
-                  <span 
-                    style={{ 
-                      background: GRADIENT,
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text'
-                    }}
-                  >
-                    Code.
-                  </span>
+                <span 
+                  style={{ 
+                    background: GRADIENT,
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text'
+                  }}
+                >
+                  Code.
+                </span>
               </h1>
               <p 
                 className="text-[12px] leading-relaxed font-bold fade-up"
@@ -203,13 +204,13 @@ export default function InviteCode({ onNext, onBack }) {
             >
               {!verified ? (
                 <>
-                  {/* 지우기 버튼 — 건반 위 가운데 */}
-                  <div style={{ display:'flex', justifyContent:'center', marginBottom:'8px', minHeight:'28px' }}>
+                  {/* 지우기 버튼 */}
+                  <div className="flex justify-center mb-2" style={{ minHeight:'28px' }}>
                     {notes.length > 0 && (
                       <button
                         onClick={removeNote}
                         className="flex items-center gap-1.5 px-3 py-1.5 rounded-full"
-                        style={{ background: 'rgba(255,255,255,0.05)', border:'none', cursor:'pointer' }}
+                        style={{ background: 'rgba(255,255,255,0.05)' }}
                       >
                         <Delete size={12} color={TEXT_MUTED} />
                         <span className="text-[11px] font-bold" style={{ color: TEXT_MUTED }}>
@@ -218,7 +219,6 @@ export default function InviteCode({ onNext, onBack }) {
                       </button>
                     )}
                   </div>
-
                   <div className="flex justify-between gap-1.5">
                     {[0,1,2,3,4].map(i => {
                       const note = notes[i];
@@ -379,8 +379,8 @@ export default function InviteCode({ onNext, onBack }) {
           {mounted && (
             <button 
               disabled={!verified}
-              className="w-full py-3.5 rounded-2xl flex items-center justify-center gap-2 fade-up transition-all active:scale-[0.98]"
               onClick={() => verified && onNext()}
+              className="w-full py-3.5 rounded-2xl flex items-center justify-center gap-2 fade-up transition-all active:scale-[0.98]"
               style={{ 
                 background: verified ? GRADIENT : '#1a1a1a',
                 boxShadow: verified ? '0 8px 32px rgba(167, 139, 250, 0.3)' : 'none',
