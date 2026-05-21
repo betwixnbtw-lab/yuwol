@@ -21,9 +21,6 @@ function Welcome({ onNext }) {
       <div style={{ position:'absolute', bottom:'-80px', right:'10%', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,#f9a8d4 0%,transparent 70%)', filter:'blur(80px)', opacity:0.35, pointerEvents:'none' }} />
       <div style={{ position:'absolute', bottom:'-60px', left:'10%', width:'260px', height:'260px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(80px)', opacity:0.25, pointerEvents:'none' }} />
 
-      {/* 🛠 새로 추가한 최하단 전용 글로우 div: 기존 색감을 해치지 않고, 화면 밑으로 늘어나는 검은 영역만 자연스러운 그라데이션으로 채워줌 */}
-      <div style={{ position:'absolute', bottom:'-140px', left:0, right:0, height:'160px', background:'linear-gradient(to bottom, transparent, #091310 50%, #070510 100%)', opacity:0.6, filter:'blur(40px)', pointerEvents:'none' }} />
-
       <div style={{ display:'flex', alignItems:'center', gap:'8px', position:'relative', zIndex:1, flexShrink:0 }}>
         <div style={{ width:'6px', height:'6px', borderRadius:'50%', background:GRADIENT }} />
         <p style={{ fontSize:'10px', letterSpacing:'0.3em', fontWeight:900, textTransform:'uppercase', color:TEXT_MUTED, margin:0 }}>
