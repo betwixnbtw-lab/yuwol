@@ -26,21 +26,23 @@ function Welcome({ onNext }) {
         paddingLeft: '28px',
         paddingRight: '28px',
 
-        /* 전체 레이아웃 아래로 */
-        paddingTop: '72px',
-        paddingBottom: '28px',
+        paddingTop: '36px',
+        paddingBottom: '24px',
 
         boxSizing: 'border-box',
 
         display: 'flex',
         flexDirection: 'column',
+
+        /* 전체 화면 자체를 아래로 */
+        transform: 'translateY(32px)',
       }}
     >
       {/* Glow */}
       <div
         style={{
           position: 'absolute',
-          top: '-80px',
+          top: '-90px',
           right: '-50px',
 
           width: '240px',
@@ -51,7 +53,7 @@ function Welcome({ onNext }) {
           background:
             'radial-gradient(circle,#a78bfa 0%,transparent 55%)',
 
-          filter: 'blur(55px)',
+          filter: 'blur(50px)',
 
           opacity: 0.18,
 
@@ -62,7 +64,7 @@ function Welcome({ onNext }) {
       <div
         style={{
           position: 'absolute',
-          top: '34%',
+          top: '30%',
           left: '-90px',
 
           width: '220px',
@@ -128,43 +130,37 @@ function Welcome({ onNext }) {
       {/* 상단 */}
       <div
         style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+
           position: 'relative',
           zIndex: 1,
-
-          flexShrink: 0,
         }}
       >
         <div
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
+            width: '6px',
+            height: '6px',
+            borderRadius: '50%',
+            background: GRADIENT,
+          }}
+        />
+
+        <p
+          style={{
+            fontSize: '10px',
+            letterSpacing: '0.3em',
+            fontWeight: 900,
+            textTransform: 'uppercase',
+
+            color: TEXT_MUTED,
+
+            margin: 0,
           }}
         >
-          <div
-            style={{
-              width: '6px',
-              height: '6px',
-              borderRadius: '50%',
-              background: GRADIENT,
-            }}
-          />
-
-          <p
-            style={{
-              fontSize: '10px',
-              letterSpacing: '0.3em',
-              fontWeight: 900,
-              textTransform: 'uppercase',
-
-              color: TEXT_MUTED,
-
-              margin: 0,
-            }}
-          >
-            Vocal Practice Manager
-          </p>
-        </div>
+          Vocal Practice Manager
+        </p>
       </div>
 
       {/* 캐릭터 */}
@@ -178,23 +174,20 @@ function Welcome({ onNext }) {
 
           position: 'relative',
           zIndex: 1,
-
-          /* 캐릭터도 조금 아래 */
-          transform: 'translateY(12px)',
         }}
       >
         <div
           style={{
             position: 'absolute',
 
-            width: '240px',
-            height: '240px',
+            width: '220px',
+            height: '220px',
 
             borderRadius: '50%',
 
             background: GRADIENT,
 
-            filter: 'blur(50px)',
+            filter: 'blur(45px)',
 
             opacity: 0.18,
           }}
@@ -204,8 +197,8 @@ function Welcome({ onNext }) {
           src="/yuwol.png"
           alt="유월이"
           style={{
-            width: '235px',
-            height: '235px',
+            width: '220px',
+            height: '220px',
 
             objectFit: 'contain',
 
@@ -213,7 +206,7 @@ function Welcome({ onNext }) {
             zIndex: 1,
 
             filter:
-              'drop-shadow(0 0 12px rgba(167,139,250,0.25))',
+              'drop-shadow(0 0 12px rgba(167,139,250,0.28))',
           }}
         />
       </div>
@@ -223,11 +216,6 @@ function Welcome({ onNext }) {
         style={{
           position: 'relative',
           zIndex: 1,
-
-          flexShrink: 0,
-
-          /* 버튼 위치 다시 위로 */
-          transform: 'translateY(-44px)',
         }}
       >
         <p
