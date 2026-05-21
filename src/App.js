@@ -15,12 +15,13 @@ function Welcome({ onNext }) {
     <div
       style={{
         width: '100%',
-        height: '100dvh',
+        minHeight: '100vh',
 
         background: '#000',
 
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'space-between',
 
         position: 'relative',
         overflow: 'hidden',
@@ -28,109 +29,192 @@ function Welcome({ onNext }) {
         paddingLeft: '24px',
         paddingRight: '24px',
 
-        /* InviteCode랑 동일 */
         paddingTop: 'max(48px, env(safe-area-inset-top))',
-        paddingBottom: 'max(20px, env(safe-area-inset-bottom))',
+        paddingBottom: '20px',
 
         boxSizing: 'border-box',
+
+        fontFamily:
+          "'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif",
       }}
     >
+      {/* Fonts */}
+      <link
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css"
+        rel="stylesheet"
+      />
+
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800;12..96,900&display=swap"
+        rel="stylesheet"
+      />
+
+      <style>{`
+        .display {
+          font-family: 'Bricolage Grotesque', sans-serif;
+          letter-spacing: -0.04em;
+        }
+
+        @keyframes glow-pulse {
+          0%,100% {
+            opacity:.3;
+            transform:scale(1);
+          }
+
+          50% {
+            opacity:.5;
+            transform:scale(1.08);
+          }
+        }
+
+        .glow-anim {
+          animation: glow-pulse 4s ease-in-out infinite;
+        }
+      `}</style>
+
       {/* Glow */}
       <div
+        className="glow-anim"
         style={{
           position: 'absolute',
           top: '-128px',
           right: '-80px',
+
           width: '320px',
           height: '320px',
+
           borderRadius: '50%',
+
           background:
             'radial-gradient(circle,#a78bfa 0%,transparent 70%)',
+
           filter: 'blur(70px)',
-          opacity: 0.25,
+
           pointerEvents: 'none',
         }}
       />
 
       <div
+        className="glow-anim"
         style={{
           position: 'absolute',
           top: '33%',
           left: '-128px',
+
           width: '288px',
           height: '288px',
+
           borderRadius: '50%',
+
           background:
             'radial-gradient(circle,#6ee7b7 0%,transparent 70%)',
+
           filter: 'blur(70px)',
-          opacity: 0.18,
+
           pointerEvents: 'none',
+
+          animationDelay: '1s',
         }}
       />
 
       <div
+        className="glow-anim"
         style={{
           position: 'absolute',
           bottom: '-80px',
           right: '10%',
+
           width: '280px',
           height: '280px',
+
           borderRadius: '50%',
+
           background:
             'radial-gradient(circle,#f9a8d4 0%,transparent 70%)',
+
           filter: 'blur(80px)',
-          opacity: 0.2,
+
+          opacity: 0.35,
+
           pointerEvents: 'none',
+
+          animationDelay: '0.5s',
         }}
       />
 
       <div
+        className="glow-anim"
         style={{
           position: 'absolute',
           bottom: '-60px',
           left: '10%',
+
           width: '260px',
           height: '260px',
+
           borderRadius: '50%',
+
           background:
             'radial-gradient(circle,#a78bfa 0%,transparent 70%)',
+
           filter: 'blur(80px)',
-          opacity: 0.15,
+
+          opacity: 0.25,
+
           pointerEvents: 'none',
+
+          animationDelay: '1.5s',
         }}
       />
 
-      {/* 상단 문구 위치 = InviteCode Step 위치 */}
+      {/* 상단 */}
       <div
         style={{
-          marginTop: '24px',
+          marginTop: '4px',
           position: 'relative',
           zIndex: 1,
-          flexShrink: 0,
         }}
       >
-        <p
+        <div
           style={{
-            fontSize: '11px',
-            letterSpacing: '0.3em',
-            fontWeight: 900,
-            textTransform: 'uppercase',
-
-            margin: '0',
-
-            color: 'transparent',
-
-            background: GRADIENT,
-
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
           }}
         >
-          Vocal Practice Manager
-        </p>
+          <div
+            style={{
+              width: '24px',
+              height: '4px',
+              borderRadius: '2px',
+              background: GRADIENT,
+            }}
+          />
+
+          <p
+            className="display"
+            style={{
+              fontSize: '11px',
+              letterSpacing: '0.3em',
+              fontWeight: 900,
+              textTransform: 'uppercase',
+
+              margin: 0,
+
+              color: 'transparent',
+
+              background: GRADIENT,
+
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+            }}
+          >
+            Vocal Practice Manager
+          </p>
+        </div>
       </div>
 
-      {/* 중앙 캐릭터 */}
+      {/* 캐릭터 */}
       <div
         style={{
           flex: 1,
@@ -141,17 +225,14 @@ function Welcome({ onNext }) {
 
           position: 'relative',
           zIndex: 1,
-
-          /* 정확히 가운데 */
-          marginTop: '-10px',
         }}
       >
         <div
           style={{
             position: 'absolute',
 
-            width: '240px',
-            height: '240px',
+            width: '250px',
+            height: '250px',
 
             borderRadius: '50%',
 
@@ -159,7 +240,7 @@ function Welcome({ onNext }) {
 
             filter: 'blur(55px)',
 
-            opacity: 0.2,
+            opacity: 0.22,
           }}
         />
 
@@ -167,8 +248,8 @@ function Welcome({ onNext }) {
           src="/yuwol.png"
           alt="유월이"
           style={{
-            width: '235px',
-            height: '235px',
+            width: '240px',
+            height: '240px',
 
             objectFit: 'contain',
 
@@ -176,7 +257,7 @@ function Welcome({ onNext }) {
             zIndex: 1,
 
             filter:
-              'drop-shadow(0 0 14px rgba(167,139,250,0.28))',
+              'drop-shadow(0 0 18px rgba(167,139,250,0.28))',
           }}
         />
       </div>
@@ -186,13 +267,10 @@ function Welcome({ onNext }) {
         style={{
           position: 'relative',
           zIndex: 1,
-          flexShrink: 0,
-
-          /* 버튼 위치 InviteCode와 맞춤 */
-          marginBottom: '0px',
         }}
       >
         <p
+          className="display"
           style={{
             fontSize: '13px',
             letterSpacing: '0.25em',
@@ -212,16 +290,15 @@ function Welcome({ onNext }) {
         </p>
 
         <h1
+          className="display"
           style={{
             fontSize: '44px',
             fontWeight: 900,
-            lineHeight: '0.95',
+            lineHeight: 0.95,
 
             margin: '0 0 10px',
 
             color: TEXT,
-
-            letterSpacing: '-0.04em',
           }}
         >
           Practice
@@ -274,10 +351,11 @@ function Welcome({ onNext }) {
             background: GRADIENT,
 
             boxShadow:
-              '0 8px 24px rgba(167,139,250,.22)',
+              '0 8px 32px rgba(167,139,250,.3)',
           }}
         >
           <span
+            className="display"
             style={{
               fontSize: '16px',
               fontWeight: 900,
