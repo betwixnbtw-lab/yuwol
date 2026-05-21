@@ -26,7 +26,8 @@ function Welcome({ onNext }) {
         paddingLeft: '28px',
         paddingRight: '28px',
 
-        paddingTop: '36px',
+        /* 전체 살짝 아래로 */
+        paddingTop: '52px',
         paddingBottom: '24px',
 
         boxSizing: 'border-box',
@@ -41,13 +42,19 @@ function Welcome({ onNext }) {
           position: 'absolute',
           top: '-90px',
           right: '-50px',
+
           width: '240px',
           height: '240px',
+
           borderRadius: '50%',
+
           background:
             'radial-gradient(circle,#a78bfa 0%,transparent 55%)',
+
           filter: 'blur(50px)',
+
           opacity: 0.18,
+
           pointerEvents: 'none',
         }}
       />
@@ -57,13 +64,63 @@ function Welcome({ onNext }) {
           position: 'absolute',
           top: '30%',
           left: '-90px',
+
           width: '220px',
           height: '220px',
+
           borderRadius: '50%',
+
           background:
             'radial-gradient(circle,#6ee7b7 0%,transparent 55%)',
+
           filter: 'blur(50px)',
+
           opacity: 0.14,
+
+          pointerEvents: 'none',
+        }}
+      />
+
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '-70px',
+          right: '8%',
+
+          width: '230px',
+          height: '230px',
+
+          borderRadius: '50%',
+
+          background:
+            'radial-gradient(circle,#f9a8d4 0%,transparent 55%)',
+
+          filter: 'blur(55px)',
+
+          opacity: 0.15,
+
+          pointerEvents: 'none',
+        }}
+      />
+
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '-60px',
+          left: '8%',
+
+          width: '220px',
+          height: '220px',
+
+          borderRadius: '50%',
+
+          background:
+            'radial-gradient(circle,#a78bfa 0%,transparent 55%)',
+
+          filter: 'blur(55px)',
+
+          opacity: 0.12,
+
           pointerEvents: 'none',
         }}
       />
@@ -109,7 +166,7 @@ function Welcome({ onNext }) {
       {/* 중간 */}
       <div
         style={{
-          height: '320px',
+          height: '280px',
 
           display: 'flex',
           alignItems: 'center',
@@ -158,6 +215,9 @@ function Welcome({ onNext }) {
       <div
         style={{
           marginTop: 'auto',
+
+          /* 하단 섹션 살짝 위로 */
+          transform: 'translateY(-28px)',
 
           position: 'relative',
           zIndex: 1,
