@@ -26,8 +26,9 @@ function Welcome({ onNext }) {
         paddingLeft: '28px',
         paddingRight: '28px',
 
-        paddingTop: '70px',
-        paddingBottom: '26px',
+        /* 전체 레이아웃 아래로 */
+        paddingTop: '72px',
+        paddingBottom: '28px',
 
         boxSizing: 'border-box',
 
@@ -39,8 +40,8 @@ function Welcome({ onNext }) {
       <div
         style={{
           position: 'absolute',
-          top: '-60px',
-          right: '-40px',
+          top: '-80px',
+          right: '-50px',
 
           width: '240px',
           height: '240px',
@@ -61,7 +62,7 @@ function Welcome({ onNext }) {
       <div
         style={{
           position: 'absolute',
-          top: '35%',
+          top: '34%',
           left: '-90px',
 
           width: '220px',
@@ -80,13 +81,57 @@ function Welcome({ onNext }) {
         }}
       />
 
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '-70px',
+          right: '8%',
+
+          width: '230px',
+          height: '230px',
+
+          borderRadius: '50%',
+
+          background:
+            'radial-gradient(circle,#f9a8d4 0%,transparent 55%)',
+
+          filter: 'blur(55px)',
+
+          opacity: 0.15,
+
+          pointerEvents: 'none',
+        }}
+      />
+
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '-60px',
+          left: '8%',
+
+          width: '220px',
+          height: '220px',
+
+          borderRadius: '50%',
+
+          background:
+            'radial-gradient(circle,#a78bfa 0%,transparent 55%)',
+
+          filter: 'blur(55px)',
+
+          opacity: 0.12,
+
+          pointerEvents: 'none',
+        }}
+      />
+
       {/* 상단 */}
       <div
         style={{
           position: 'relative',
           zIndex: 1,
 
-          marginBottom: '12px',
+          flexShrink: 0,
         }}
       >
         <div
@@ -125,7 +170,7 @@ function Welcome({ onNext }) {
       {/* 캐릭터 */}
       <div
         style={{
-          height: '360px',
+          flex: 1,
 
           display: 'flex',
           alignItems: 'center',
@@ -134,7 +179,8 @@ function Welcome({ onNext }) {
           position: 'relative',
           zIndex: 1,
 
-          marginTop: '12px',
+          /* 캐릭터도 조금 아래 */
+          transform: 'translateY(12px)',
         }}
       >
         <div
@@ -175,12 +221,13 @@ function Welcome({ onNext }) {
       {/* 하단 */}
       <div
         style={{
-          marginTop: 'auto',
-
-          transform: 'translateY(-70px)',
-
           position: 'relative',
           zIndex: 1,
+
+          flexShrink: 0,
+
+          /* 버튼 위치 다시 위로 */
+          transform: 'translateY(-44px)',
         }}
       >
         <p
