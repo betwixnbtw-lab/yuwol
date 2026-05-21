@@ -16,13 +16,13 @@ function Welcome({ onNext }) {
       paddingTop: 'max(48px, env(safe-area-inset-top))',
       paddingBottom: 'max(32px, env(safe-area-inset-bottom))',
     }}>
-      {/* 1. 상단 및 중단 조명 (원본 값 100% 동일, 색감 유지) */}
       <div style={{ position:'absolute', top:'-100px', right:'-60px', width:'300px', height:'300px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(70px)', opacity:0.4, pointerEvents:'none' }} />
       <div style={{ position:'absolute', top:'30%', left:'-100px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,#6ee7b7 0%,transparent 70%)', filter:'blur(70px)', opacity:0.3, pointerEvents:'none' }} />
-      
-      {/* 2. 하단 조명 수정: 원본의 투명도(0.35, 0.25)를 유지하면서, 밑으로 늘어나는 공간만 자연스럽게 채우도록 펄져나가는 범위(blur)와 위치만 조절 */}
-      <div style={{ position:'absolute', bottom:'-130px', right:'10%', width:'300px', height:'300px', borderRadius:'50%', background:'radial-gradient(circle,#f9a8d4 0%,transparent 70%)', filter:'blur(90px)', opacity:0.35, pointerEvents:'none' }} />
-      <div style={{ position:'absolute', bottom:'-110px', left:'10%', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(90px)', opacity:0.25, pointerEvents:'none' }} />
+      <div style={{ position:'absolute', bottom:'-80px', right:'10%', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,#f9a8d4 0%,transparent 70%)', filter:'blur(80px)', opacity:0.35, pointerEvents:'none' }} />
+      <div style={{ position:'absolute', bottom:'-60px', left:'10%', width:'260px', height:'260px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(80px)', opacity:0.25, pointerEvents:'none' }} />
+
+      {/* 🛠 새로 추가한 최하단 전용 글로우 div: 기존 색감을 해치지 않고, 화면 밑으로 늘어나는 검은 영역만 자연스러운 그라데이션으로 채워줌 */}
+      <div style={{ position:'absolute', bottom:'-140px', left:0, right:0, height:'160px', background:'linear-gradient(to bottom, transparent, #091310 50%, #070510 100%)', opacity:0.6, filter:'blur(40px)', pointerEvents:'none' }} />
 
       <div style={{ display:'flex', alignItems:'center', gap:'8px', position:'relative', zIndex:1, flexShrink:0 }}>
         <div style={{ width:'6px', height:'6px', borderRadius:'50%', background:GRADIENT }} />
@@ -45,8 +45,6 @@ function Welcome({ onNext }) {
         <p style={{ fontSize:'14px', fontWeight:700, margin:'0 0 24px', color:TEXT_MUTED }}>
           당신은 매일 연습하고 있는가.
         </p>
-        
-        {/* 시작하기 버튼 (동의 문구 깔끔하게 삭제) */}
         <button onClick={onNext} style={{ width:'100%', padding:'16px', borderRadius:'16px', border:'none', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center', gap:'8px', background:GRADIENT, boxShadow:'0 8px 32px rgba(167,139,250,0.3)' }}>
           <span style={{ fontSize:'16px', fontWeight:900, color:'#000' }}>시작하기</span>
           <ArrowRight size={18} strokeWidth={3} color="#000" />
