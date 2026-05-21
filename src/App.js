@@ -1,324 +1,143 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-
 import InviteCode from './InviteCode';
 import AboutYou from './AboutYou';
 
-const GRADIENT =
-  'linear-gradient(135deg, #fdba74 0%, #f9a8d4 30%, #6ee7b7 65%, #a78bfa 100%)';
-
+const GRADIENT = 'linear-gradient(135deg, #fdba74 0%, #f9a8d4 30%, #6ee7b7 65%, #a78bfa 100%)';
 const TEXT = '#fafafa';
 const TEXT_MUTED = '#808080';
 
-/* ----------------------------- */
-/* Glow */
-/* ----------------------------- */
-
-function Glow({ style }) {
-  return (
-    <div
-      style={{
-        position: 'absolute',
-        borderRadius: '50%',
-
-        /* 중요 */
-        pointerEvents: 'none',
-
-        /* iOS GPU 안정화 */
-        willChange: 'transform',
-        transform: 'translateZ(0)',
-
-        zIndex: 0,
-
-        ...style,
-      }}
-    />
-  );
-}
-
-/* ----------------------------- */
-/* 공통 화면 Wrapper */
-/* ----------------------------- */
-
-function ScreenWrapper({ children }) {
-  return (
-    <div
-      style={{
-        width: '100%',
-        minHeight: '100dvh',
-
-        background: '#000',
-
-        display: 'flex',
-        flexDirection: 'column',
-
-        position: 'relative',
-        overflow: 'hidden',
-
-        paddingLeft: '28px',
-        paddingRight: '28px',
-
-        paddingTop: '48px',
-
-        /* 핵심 */
-        paddingBottom: 'calc(env(safe-area-inset-bottom) + 20px)',
-
-        boxSizing: 'border-box',
-
-        /* iOS 안정화 */
-        isolation: 'isolate',
-        WebkitBackfaceVisibility: 'hidden',
-        backfaceVisibility: 'hidden',
-        transform: 'translateZ(0)',
-      }}
-    >
-      {/* ----------------------------- */}
-      {/* 배경 Glow */}
-      {/* ----------------------------- */}
-
-      <Glow
-        style={{
-          top: '-80px',
-          right: '-50px',
-
-          width: '240px',
-          height: '240px',
-
-          background:
-            'radial-gradient(circle, rgba(167,139,250,0.22) 0%, transparent 55%)',
-
-          filter: 'blur(45px)',
-          opacity: 0.16,
-        }}
-      />
-
-      <Glow
-        style={{
-          top: '35%',
-          left: '-90px',
-
-          width: '220px',
-          height: '220px',
-
-          background:
-            'radial-gradient(circle, rgba(110,231,183,0.18) 0%, transparent 55%)',
-
-          filter: 'blur(45px)',
-          opacity: 0.14,
-        }}
-      />
-
-      <Glow
-        style={{
-          bottom: '-70px',
-          right: '5%',
-
-          width: '240px',
-          height: '240px',
-
-          background:
-            'radial-gradient(circle, rgba(249,168,212,0.18) 0%, transparent 55%)',
-
-          filter: 'blur(50px)',
-          opacity: 0.15,
-        }}
-      />
-
-      <Glow
-        style={{
-          bottom: '-60px',
-          left: '5%',
-
-          width: '220px',
-          height: '220px',
-
-          background:
-            'radial-gradient(circle, rgba(167,139,250,0.14) 0%, transparent 55%)',
-
-          filter: 'blur(50px)',
-          opacity: 0.12,
-        }}
-      />
-
-      {/* 실제 UI */}
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 10,
-
-          display: 'flex',
-          flexDirection: 'column',
-
-          flex: 1,
-        }}
-      >
-        {children}
-      </div>
-    </div>
-  );
-}
-
-/* ----------------------------- */
-/* Welcome */
-/* ----------------------------- */
-
 function Welcome({ onNext }) {
   return (
-    <ScreenWrapper>
+    <div style={{
+      width: '100%',
+      height: '100dvh',
+      background: '#000',
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      overflow: 'hidden',
+      paddingLeft: '28px',
+      paddingRight: '28px',
+      paddingTop: 'max(48px, env(safe-area-inset-top))',
+      paddingBottom: 'max(32px, env(safe-area-inset-bottom))',
+    }}>
+      <div style={{ position:'absolute', top:'-100px', right:'-60px', width:'300px', height:'300px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(70px)', opacity:0.4, pointerEvents:'none' }} />
+
+      <div style={{ position:'absolute', top:'30%', left:'-100px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,#6ee7b7 0%,transparent 70%)', filter:'blur(70px)', opacity:0.3, pointerEvents:'none' }} />
+
+      <div style={{ position:'absolute', bottom:'-80px', right:'10%', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,#f9a8d4 0%,transparent 70%)', filter:'blur(80px)', opacity:0.35, pointerEvents:'none' }} />
+
+      <div style={{ position:'absolute', bottom:'-60px', left:'10%', width:'260px', height:'260px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(80px)', opacity:0.25, pointerEvents:'none' }} />
+
       {/* 상단 */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
+      <div style={{
+        display:'flex',
+        alignItems:'center',
+        gap:'8px',
+        position:'relative',
+        zIndex:1,
+        flexShrink:0
+      }}>
+        <div style={{
+          width:'6px',
+          height:'6px',
+          borderRadius:'50%',
+          background:GRADIENT
+        }} />
 
-          flexShrink: 0,
-
-          position: 'relative',
-          zIndex: 10,
-        }}
-      >
-        <div
-          style={{
-            width: '6px',
-            height: '6px',
-            borderRadius: '50%',
-            background: GRADIENT,
-          }}
-        />
-
-        <p
-          style={{
-            fontSize: '10px',
-            letterSpacing: '0.3em',
-            fontWeight: 900,
-            textTransform: 'uppercase',
-            color: TEXT_MUTED,
-            margin: 0,
-          }}
-        >
+        <p style={{
+          fontSize:'10px',
+          letterSpacing:'0.3em',
+          fontWeight:900,
+          textTransform:'uppercase',
+          color:TEXT_MUTED,
+          margin:0
+        }}>
           Vocal Practice Manager
         </p>
       </div>
 
       {/* 캐릭터 */}
-      <div
-        style={{
-          flex: 1,
-
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-
-          position: 'relative',
-          zIndex: 10,
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-
-            width: '220px',
-            height: '220px',
-
-            borderRadius: '50%',
-
-            background: GRADIENT,
-
-            filter: 'blur(45px)',
-            opacity: 0.18,
-
-            pointerEvents: 'none',
-          }}
-        />
+      <div style={{
+        flex:1,
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        position:'relative',
+        zIndex:1
+      }}>
+        <div style={{
+          position:'absolute',
+          width:'260px',
+          height:'260px',
+          borderRadius:'50%',
+          background:GRADIENT,
+          filter:'blur(60px)',
+          opacity:0.5
+        }} />
 
         <img
           src="/yuwol.png"
           alt="유월이"
           style={{
-            width: '240px',
-            height: '240px',
-
-            objectFit: 'contain',
-
-            position: 'relative',
-            zIndex: 1,
-
-            filter: 'drop-shadow(0 0 10px rgba(167,139,250,0.18))',
-
-            transform: 'translateZ(0)',
-            pointerEvents: 'none',
+            width:'260px',
+            height:'260px',
+            objectFit:'contain',
+            position:'relative',
+            zIndex:1,
+            filter:'drop-shadow(0 0 20px rgba(167,139,250,0.5))'
           }}
         />
       </div>
 
       {/* 하단 */}
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 10,
-
-          flexShrink: 0,
-        }}
-      >
-        <p
-          style={{
-            fontSize: '14px',
-            letterSpacing: '0.25em',
-            fontWeight: 900,
-            textTransform: 'uppercase',
-
-            margin: '0 0 8px',
-
-            background: GRADIENT,
-
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}
-        >
+      <div style={{
+        position:'relative',
+        zIndex:1,
+        flexShrink:0
+      }}>
+        <p style={{
+          fontSize:'14px',
+          letterSpacing:'0.25em',
+          fontWeight:900,
+          textTransform:'uppercase',
+          margin:'0 0 8px',
+          background:GRADIENT,
+          WebkitBackgroundClip:'text',
+          WebkitTextFillColor:'transparent',
+          backgroundClip:'text'
+        }}>
           YUWOL
         </p>
 
-        <h1
-          style={{
-            fontSize: '48px',
-            fontWeight: 900,
-            lineHeight: '0.95',
-
-            margin: '0 0 12px',
-
-            color: TEXT,
-
-            letterSpacing: '-0.04em',
-          }}
-        >
+        <h1 style={{
+          fontSize:'48px',
+          fontWeight:900,
+          lineHeight:'0.95',
+          margin:'0 0 12px',
+          color:TEXT,
+          letterSpacing:'-0.04em'
+        }}>
           Practice
           <br />
 
-          <span
-            style={{
-              background: GRADIENT,
-
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
+          <span style={{
+            background:GRADIENT,
+            WebkitBackgroundClip:'text',
+            WebkitTextFillColor:'transparent',
+            backgroundClip:'text'
+          }}>
             or Die.
           </span>
         </h1>
 
-        <p
-          style={{
-            fontSize: '14px',
-            fontWeight: 700,
-
-            margin: '0 0 24px',
-
-            color: TEXT_MUTED,
-          }}
-        >
+        <p style={{
+          fontSize:'14px',
+          fontWeight:700,
+          margin:'0 0 24px',
+          color:TEXT_MUTED
+        }}>
           당신은 매일 연습하고 있는가.
         </p>
 
@@ -326,37 +145,24 @@ function Welcome({ onNext }) {
         <button
           onClick={onNext}
           style={{
-            width: '100%',
-
-            padding: '16px',
-
-            borderRadius: '16px',
-            border: 'none',
-
-            cursor: 'pointer',
-
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '8px',
-
-            background: GRADIENT,
-
-            boxShadow: '0 8px 20px rgba(167,139,250,0.16)',
-
-            position: 'relative',
-            zIndex: 20,
-
-            transform: 'translateZ(0)',
+            width:'100%',
+            padding:'16px',
+            borderRadius:'16px',
+            border:'none',
+            cursor:'pointer',
+            display:'flex',
+            alignItems:'center',
+            justifyContent:'center',
+            gap:'8px',
+            background:GRADIENT,
+            boxShadow:'0 8px 32px rgba(167,139,250,0.3)'
           }}
         >
-          <span
-            style={{
-              fontSize: '16px',
-              fontWeight: 900,
-              color: '#000',
-            }}
-          >
+          <span style={{
+            fontSize:'16px',
+            fontWeight:900,
+            color:'#000'
+          }}>
             시작하기
           </span>
 
@@ -367,13 +173,9 @@ function Welcome({ onNext }) {
           />
         </button>
       </div>
-    </ScreenWrapper>
+    </div>
   );
 }
-
-/* ----------------------------- */
-/* App */
-/* ----------------------------- */
 
 export default function App() {
   const [screen, setScreen] = useState('welcome');
