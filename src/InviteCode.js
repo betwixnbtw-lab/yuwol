@@ -49,22 +49,15 @@ export default function InviteCode({ onNext, onBack }) {
 
   return (
     <div style={{
-      width: '100%',
-      height: '100dvh',
-      background: '#000',
-      display: 'flex',
-      flexDirection: 'column',
-      position: 'relative',
-      overflow: 'hidden',
-      paddingLeft: '24px',
-      paddingRight: '24px',
+      width: '100%', height: '100dvh', background: '#000', display: 'flex',
+      flexDirection: 'column', position: 'relative', overflow: 'hidden',
+      paddingLeft: '24px', paddingRight: '24px',
       paddingTop: 'max(48px, env(safe-area-inset-top))',
       paddingBottom: 'max(20px, env(safe-area-inset-bottom))',
       fontFamily: "'Pretendard', -apple-system, sans-serif",
     }}>
       <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800;12..96,900&display=swap" rel="stylesheet" />
-      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet" />
       <style>{`
         .display { font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: -0.04em; }
         .mono { font-family: 'JetBrains Mono', monospace; }
@@ -76,11 +69,11 @@ export default function InviteCode({ onNext, onBack }) {
         .pop { animation: pop 0.5s ease-out both; }
       `}</style>
 
-      {/* 글로우 */}
       <div className="glow-anim" style={{ position:'absolute', top:'-128px', right:'-80px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(70px)', pointerEvents:'none' }} />
       <div className="glow-anim" style={{ position:'absolute', top:'33%', left:'-128px', width:'288px', height:'288px', borderRadius:'50%', background:'radial-gradient(circle,#6ee7b7 0%,transparent 70%)', filter:'blur(70px)', pointerEvents:'none', animationDelay:'1s' }} />
+      <div className="glow-anim" style={{ position:'absolute', bottom:'-80px', right:'10%', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,#f9a8d4 0%,transparent 70%)', filter:'blur(80px)', opacity:0.35, pointerEvents:'none', animationDelay:'0.5s' }} />
+      <div className="glow-anim" style={{ position:'absolute', bottom:'-60px', left:'10%', width:'260px', height:'260px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(80px)', opacity:0.25, pointerEvents:'none', animationDelay:'1.5s' }} />
 
-      {/* 네비 */}
       {mounted && (
         <div className="fade-up" style={{ display:'flex', alignItems:'center', justifyContent:'space-between', flexShrink:0, animationDelay:'0.05s' }}>
           <button onClick={onBack} style={{ width:'40px', height:'40px', borderRadius:'50%', background:'rgba(255,255,255,0.05)', border:'none', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center' }}>
@@ -94,7 +87,6 @@ export default function InviteCode({ onNext, onBack }) {
         </div>
       )}
 
-      {/* 헤더 */}
       {mounted && (
         <div style={{ marginTop:'24px', flexShrink:0 }}>
           <p className="display fade-up" style={{ fontSize:'11px', letterSpacing:'0.3em', fontWeight:900, textTransform:'uppercase', margin:'0 0 12px', color:'transparent', background:GRADIENT, WebkitBackgroundClip:'text', backgroundClip:'text', animationDelay:'0.1s' }}>
@@ -110,7 +102,6 @@ export default function InviteCode({ onNext, onBack }) {
         </div>
       )}
 
-      {/* 입력 슬롯 */}
       {mounted && (
         <div className="fade-up" style={{ marginTop:'24px', flexShrink:0, animationDelay:'0.3s' }}>
           {!verified ? (
@@ -140,11 +131,8 @@ export default function InviteCode({ onNext, onBack }) {
         </div>
       )}
 
-      {/* 피아노 + 지우기 버튼 */}
       {mounted && (
         <div className="fade-up" style={{ marginTop:'auto', flexShrink:0, animationDelay:'0.4s' }}>
-
-          {/* 지우기 버튼 — 건반 바로 위 가운데 */}
           <div style={{ display:'flex', justifyContent:'center', marginBottom:'10px', minHeight:'28px' }}>
             {notes.length > 0 && !verified && (
               <button onClick={removeNote} style={{ display:'flex', alignItems:'center', gap:'6px', padding:'4px 14px', borderRadius:'20px', background:'rgba(255,255,255,0.05)', border:`1px solid ${CARD_BORDER}`, cursor:'pointer' }}>
@@ -153,10 +141,7 @@ export default function InviteCode({ onNext, onBack }) {
               </button>
             )}
           </div>
-
-          {/* 피아노 */}
           <div style={{ position:'relative', height:'180px' }}>
-            {/* 흰 건반 */}
             <div style={{ position:'absolute', inset:0, display:'flex', gap:'2px' }}>
               {whiteKeys.map(key => {
                 const isPressed = pressedKey === key;
@@ -168,7 +153,6 @@ export default function InviteCode({ onNext, onBack }) {
                 );
               })}
             </div>
-            {/* 검은 건반 */}
             <div style={{ position:'absolute', inset:0, pointerEvents:'none' }}>
               {blackKeys.map(({ note, position }) => {
                 const isPressed = pressedKey === note;
@@ -181,26 +165,19 @@ export default function InviteCode({ onNext, onBack }) {
               })}
             </div>
           </div>
-
-          {/* 힌트 */}
           {!verified && notes.length === 0 && (
-            <p style={{ textAlign:'center', fontSize:'11px', color:'#555', marginTop:'10px' }}>
-              Hint : Fmaj7(#11)
-            </p>
+            <p style={{ textAlign:'center', fontSize:'11px', color:'#555', marginTop:'10px' }}>Hint : Fmaj7(#11)</p>
           )}
         </div>
       )}
 
-      {/* 다음 버튼 */}
       {mounted && (
-        <button disabled={!verified} onClick={() => verified && onNext()}
-          className="fade-up"
+        <button disabled={!verified} onClick={() => verified && onNext()} className="fade-up"
           style={{ width:'100%', padding:'14px', borderRadius:'16px', border:'none', cursor: verified ? 'pointer' : 'not-allowed', display:'flex', alignItems:'center', justifyContent:'center', gap:'8px', background: verified ? GRADIENT : '#1a1a1a', boxShadow: verified ? '0 8px 32px rgba(167,139,250,.3)' : 'none', opacity: verified ? 1 : 0.5, marginTop:'16px', flexShrink:0, animationDelay:'0.5s', transition:'all 0.2s' }}>
           <span className="display" style={{ fontSize:'16px', fontWeight:900, color: verified ? '#000' : '#444' }}>다음</span>
           <ArrowRight size={18} strokeWidth={3} color={verified ? '#000' : '#444'} />
         </button>
       )}
-
     </div>
   );
 }
