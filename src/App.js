@@ -165,7 +165,7 @@ function Welcome({ onNext }) {
       {/* 캐릭터 */}
       <div
         style={{
-          flex: 0.8,
+          flex: 0.92,
 
           display: 'flex',
           alignItems: 'center',
@@ -174,8 +174,8 @@ function Welcome({ onNext }) {
           position: 'relative',
           zIndex: 1,
 
-          paddingTop: '20px',
-          paddingBottom: '20px',
+          paddingTop: '10px',
+          paddingBottom: '10px',
         }}
       >
         <div
