@@ -46,7 +46,6 @@ function Welcome({ onNext }) {
           <span style={{ fontSize:'16px', fontWeight:900, color:'#000' }}>시작하기</span>
           <ArrowRight size={18} strokeWidth={3} color="#000" />
         </button>
-        </p>
       </div>
     </div>
   );
