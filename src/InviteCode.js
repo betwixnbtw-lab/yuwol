@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 const GRADIENT = 'linear-gradient(135deg, #fdba74 0%, #f9a8d4 30%, #6ee7b7 65%, #a78bfa 100%)';
 const TEXT = '#fafafa';
@@ -7,22 +7,21 @@ const TEXT_MUTED = '#808080';
 const CARD = '#0d0d0d';
 const CARD_BORDER = '#1f1f1f';
 
-// Fmaj7(#11) = F A C E B
 const CORRECT_CODE = ['F', 'A', 'C', 'E', 'B'];
 
 const PIANO_KEYS = [
-  { note: 'C', label: '도', black: false },
-  { note: 'C#', label: '도#', black: true },
-  { note: 'D', label: '레', black: false },
-  { note: 'D#', label: '레#', black: true },
-  { note: 'E', label: '미', black: false },
-  { note: 'F', label: '파', black: false },
-  { note: 'F#', label: '파#', black: true },
-  { note: 'G', label: '솔', black: false },
-  { note: 'G#', label: '솔#', black: true },
-  { note: 'A', label: '라', black: false },
-  { note: 'A#', label: '라#', black: true },
-  { note: 'B', label: '시', black: false },
+  { note: 'C', black: false },
+  { note: 'C#', black: true },
+  { note: 'D', black: false },
+  { note: 'D#', black: true },
+  { note: 'E', black: false },
+  { note: 'F', black: false },
+  { note: 'F#', black: true },
+  { note: 'G', black: false },
+  { note: 'G#', black: true },
+  { note: 'A', black: false },
+  { note: 'A#', black: true },
+  { note: 'B', black: false },
 ];
 
 export default function InviteCode({ onNext, onBack }) {
@@ -55,14 +54,10 @@ export default function InviteCode({ onNext, onBack }) {
       <style>{`
         html, body, #root { margin:0; padding:0; width:100%; height:100%; background:#000; overflow:hidden; }
         * { box-sizing: border-box; }
-        .key-white { transition: all 0.1s; }
-        .key-white:active { transform: scaleY(0.95); background: #e0e0e0 !important; }
-        .key-black:active { transform: scaleY(0.95); background: #333 !important; }
       `}</style>
 
       <div style={{ width:'100%', height:'100dvh', background:'#000', display:'flex', flexDirection:'column', position:'relative', overflow:'hidden', paddingLeft:'24px', paddingRight:'24px', paddingTop:'max(48px, env(safe-area-inset-top))', paddingBottom:'max(24px, env(safe-area-inset-bottom))' }}>
 
-        {/* 글로우 */}
         <div style={{ position:'absolute', top:'-80px', left:'50%', transform:'translateX(-50%)', width:'300px', height:'300px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(70px)', opacity:0.35, pointerEvents:'none' }} />
 
         {/* 뒤로가기 */}
@@ -118,9 +113,9 @@ export default function InviteCode({ onNext, onBack }) {
               {whiteKeys.map((key) => {
                 const isPressed = pressed.includes(key.note);
                 return (
-                  <button key={key.note} className="key-white"
+                  <button key={key.note}
                     onClick={() => handleKey(key.note)}
-                    style={{ flex:1, height:'100%', borderRadius:'0 0 8px 8px', background: isPressed ? '#e8e0ff' : '#f5f5f5', border:`1px solid ${isPressed ? '#a78bfa' : '#ccc'}`, cursor:'pointer', display:'flex', alignItems:'flex-end', justifyContent:'center', paddingBottom:'8px', boxShadow: isPressed ? '0 0 12px rgba(167,139,250,0.6)' : '0 2px 4px rgba(0,0,0,0.3)' }}>
+                    style={{ flex:1, height:'100%', borderRadius:'0 0 8px 8px', background: isPressed ? '#e8e0ff' : '#f5f5f5', border:`1px solid ${isPressed ? '#a78bfa' : '#ccc'}`, cursor:'pointer', display:'flex', alignItems:'flex-end', justifyContent:'center', paddingBottom:'8px', boxShadow: isPressed ? '0 0 12px rgba(167,139,250,0.6)' : '0 2px 4px rgba(0,0,0,0.3)', outline:'none' }}>
                     <span style={{ fontSize:'9px', fontWeight:900, color: isPressed ? '#a78bfa' : '#999' }}>{key.note}</span>
                   </button>
                 );
@@ -128,29 +123,26 @@ export default function InviteCode({ onNext, onBack }) {
             </div>
 
             {/* 검은 건반 */}
-            <div style={{ position:'absolute', top:0, left:0, width:'100%', height:'60%', display:'flex', pointerEvents:'none' }}>
-              {(() => {
-                const whiteWidth = 100 / 7;
-                const blackPositions = { 'C#': 0.7, 'D#': 1.7, 'F#': 3.7, 'G#': 4.65, 'A#': 5.65 };
-                return blackKeys.map((key) => {
-                  const pos = blackPositions[key.note];
-                  const isPressed = pressed.includes(key.note);
-                  return (
-                    <button key={key.note} className="key-black"
-                      onClick={() => handleKey(key.note)}
-                      style={{ position:'absolute', left:`${pos * whiteWidth}%`, width:`${whiteWidth * 0.65}%`, height:'100%', background: isPressed ? '#555' : '#1a1a1a', borderRadius:'0 0 6px 6px', border:`1px solid ${isPressed ? '#a78bfa' : '#000'}`, cursor:'pointer', pointerEvents:'all', zIndex:2, boxShadow: isPressed ? '0 0 10px rgba(167,139,250,0.5)' : '0 3px 6px rgba(0,0,0,0.6)' }}>
-                    </button>
-                  );
-                });
-              })()}
-            </div>
+            {(() => {
+              const whiteWidth = 100 / 7;
+              const blackPositions = { 'C#': 0.7, 'D#': 1.7, 'F#': 3.7, 'G#': 4.65, 'A#': 5.65 };
+              return blackKeys.map((key) => {
+                const pos = blackPositions[key.note];
+                const isPressed = pressed.includes(key.note);
+                return (
+                  <button key={key.note}
+                    onClick={() => handleKey(key.note)}
+                    style={{ position:'absolute', top:0, left:`${pos * whiteWidth}%`, width:`${whiteWidth * 0.65}%`, height:'60%', background: isPressed ? '#555' : '#1a1a1a', borderRadius:'0 0 6px 6px', border:`1px solid ${isPressed ? '#a78bfa' : '#000'}`, cursor:'pointer', zIndex:2, boxShadow: isPressed ? '0 0 10px rgba(167,139,250,0.5)' : '0 3px 6px rgba(0,0,0,0.6)', outline:'none' }}>
+                  </button>
+                );
+              });
+            })()}
           </div>
         </div>
 
         {/* 힌트 */}
-    <p style={{ textAlign:'center', fontSize:'11px', color:'#666', margin:'8px 0 0', flexShrink:0 }}>
-  Hint : Fmaj7(#11)
-</p>
+        <p style={{ textAlign:'center', fontSize:'11px', color:'#555', margin:'8px 0 0', flexShrink:0 }}>
+          Hint : Fmaj7(#11)
         </p>
 
       </div>
