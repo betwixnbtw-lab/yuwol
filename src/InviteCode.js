@@ -96,9 +96,18 @@ export default function InviteCode({ onNext, onBack }) {
           })}
         </div>
 
+        {/* 지우기 버튼 */}
+        <div style={{ display:'flex', justifyContent:'flex-end', marginTop:'10px', flexShrink:0 }}>
+          <button
+            onClick={() => { setPressed([]); setError(false); }}
+            style={{ padding:'6px 14px', borderRadius:'20px', background:'rgba(255,255,255,0.05)', border:`1px solid ${CARD_BORDER}`, cursor:'pointer' }}>
+            <span style={{ fontSize:'11px', fontWeight:900, color:TEXT_MUTED }}>지우기</span>
+          </button>
+        </div>
+
         {/* 성공 메시지 */}
         {success && (
-          <div style={{ margin:'16px 0 0', padding:'12px 16px', borderRadius:'16px', background:'rgba(110,231,183,0.1)', border:'1px solid rgba(110,231,183,0.3)', flexShrink:0 }}>
+          <div style={{ margin:'12px 0 0', padding:'12px 16px', borderRadius:'16px', background:'rgba(110,231,183,0.1)', border:'1px solid rgba(110,231,183,0.3)', flexShrink:0 }}>
             <p style={{ fontSize:'13px', fontWeight:900, color:'#6ee7b7', margin:0, textAlign:'center' }}>
               ✓ Welcome to Yuwol!
             </p>
