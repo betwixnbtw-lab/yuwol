@@ -190,7 +190,7 @@ export default function InviteCode({ onNext, onBack }) {
                 className="text-[12px] leading-relaxed font-bold fade-up"
                 style={{ color: TEXT_MUTED, animationDelay: '0.2s' }}
               >
-                쌤한테 받은 코드야. 건반으로 입력해줘.
+                코드를 입력해.
               </p>
             </div>
           )}
