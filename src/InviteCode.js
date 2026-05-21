@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+
 import InviteCode from './InviteCode';
 import AboutYou from './AboutYou';
 
@@ -9,26 +10,13 @@ const GRADIENT =
 const TEXT = '#fafafa';
 const TEXT_MUTED = '#808080';
 
-function Glow({ style }) {
-  return (
-    <div
-      style={{
-        position: 'absolute',
-        borderRadius: '50%',
-        pointerEvents: 'none',
-        willChange: 'transform',
-        transform: 'translateZ(0)',
-        ...style,
-      }}
-    />
-  );
-}
-
-function ScreenWrapper({ children }) {
+function Welcome({ onNext }) {
   return (
     <div
       style={{
         width: '100%',
+
+        /* 핵심 */
         minHeight: '100dvh',
 
         background: '#000',
@@ -45,85 +33,110 @@ function ScreenWrapper({ children }) {
         paddingTop: '48px',
 
         /* 핵심 */
-        paddingBottom: 'calc(env(safe-area-inset-bottom) + 20px)',
+        paddingBottom: '20px',
 
         boxSizing: 'border-box',
-
-        /* iOS 깜빡임 방지 */
-        WebkitBackfaceVisibility: 'hidden',
-        backfaceVisibility: 'hidden',
-        transform: 'translateZ(0)',
       }}
     >
-      {/* Glow */}
-      <Glow
+      {/* 배경 */}
+      <div
         style={{
-          top: '-80px',
-          right: '-50px',
-          width: '240px',
-          height: '240px',
+          position: 'absolute',
+          top: '-100px',
+          right: '-60px',
+
+          width: '300px',
+          height: '300px',
+
+          borderRadius: '50%',
+
           background:
-            'radial-gradient(circle, rgba(167,139,250,0.22) 0%, transparent 55%)',
-          filter: 'blur(45px)',
-          opacity: 0.16,
+            'radial-gradient(circle,#a78bfa 0%,transparent 55%)',
+
+          filter: 'blur(50px)',
+
+          opacity: 0.18,
+
+          pointerEvents: 'none',
         }}
       />
 
-      <Glow
+      <div
         style={{
-          top: '35%',
-          left: '-90px',
-          width: '220px',
-          height: '220px',
+          position: 'absolute',
+          top: '30%',
+          left: '-100px',
+
+          width: '280px',
+          height: '280px',
+
+          borderRadius: '50%',
+
           background:
-            'radial-gradient(circle, rgba(110,231,183,0.18) 0%, transparent 55%)',
-          filter: 'blur(45px)',
+            'radial-gradient(circle,#6ee7b7 0%,transparent 55%)',
+
+          filter: 'blur(50px)',
+
           opacity: 0.14,
+
+          pointerEvents: 'none',
         }}
       />
 
-      <Glow
+      <div
         style={{
-          bottom: '-70px',
-          right: '5%',
-          width: '240px',
-          height: '240px',
+          position: 'absolute',
+          bottom: '-80px',
+          right: '10%',
+
+          width: '280px',
+          height: '280px',
+
+          borderRadius: '50%',
+
           background:
-            'radial-gradient(circle, rgba(249,168,212,0.18) 0%, transparent 55%)',
-          filter: 'blur(50px)',
+            'radial-gradient(circle,#f9a8d4 0%,transparent 55%)',
+
+          filter: 'blur(55px)',
+
           opacity: 0.15,
+
+          pointerEvents: 'none',
         }}
       />
 
-      <Glow
+      <div
         style={{
+          position: 'absolute',
           bottom: '-60px',
-          left: '5%',
-          width: '220px',
-          height: '220px',
+          left: '10%',
+
+          width: '260px',
+          height: '260px',
+
+          borderRadius: '50%',
+
           background:
-            'radial-gradient(circle, rgba(167,139,250,0.14) 0%, transparent 55%)',
-          filter: 'blur(50px)',
+            'radial-gradient(circle,#a78bfa 0%,transparent 55%)',
+
+          filter: 'blur(55px)',
+
           opacity: 0.12,
+
+          pointerEvents: 'none',
         }}
       />
 
-      {children}
-    </div>
-  );
-}
-
-function Welcome({ onNext }) {
-  return (
-    <ScreenWrapper>
       {/* 상단 */}
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
           gap: '8px',
+
           position: 'relative',
           zIndex: 1,
+
           flexShrink: 0,
         }}
       >
@@ -154,9 +167,11 @@ function Welcome({ onNext }) {
       <div
         style={{
           flex: 1,
+
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+
           position: 'relative',
           zIndex: 1,
         }}
@@ -164,11 +179,16 @@ function Welcome({ onNext }) {
         <div
           style={{
             position: 'absolute',
+
             width: '220px',
             height: '220px',
+
             borderRadius: '50%',
+
             background: GRADIENT,
+
             filter: 'blur(45px)',
+
             opacity: 0.18,
           }}
         />
@@ -179,11 +199,14 @@ function Welcome({ onNext }) {
           style={{
             width: '240px',
             height: '240px',
+
             objectFit: 'contain',
+
             position: 'relative',
             zIndex: 1,
-            filter: 'drop-shadow(0 0 10px rgba(167,139,250,0.18))',
-            transform: 'translateZ(0)',
+
+            filter:
+              'drop-shadow(0 0 10px rgba(167,139,250,0.18))',
           }}
         />
       </div>
@@ -193,6 +216,7 @@ function Welcome({ onNext }) {
         style={{
           position: 'relative',
           zIndex: 1,
+
           flexShrink: 0,
         }}
       >
@@ -202,9 +226,11 @@ function Welcome({ onNext }) {
             letterSpacing: '0.25em',
             fontWeight: 900,
             textTransform: 'uppercase',
+
             margin: '0 0 8px',
 
             background: GRADIENT,
+
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -218,8 +244,11 @@ function Welcome({ onNext }) {
             fontSize: '48px',
             fontWeight: 900,
             lineHeight: '0.95',
+
             margin: '0 0 12px',
+
             color: TEXT,
+
             letterSpacing: '-0.04em',
           }}
         >
@@ -229,6 +258,7 @@ function Welcome({ onNext }) {
           <span
             style={{
               background: GRADIENT,
+
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -242,7 +272,9 @@ function Welcome({ onNext }) {
           style={{
             fontSize: '14px',
             fontWeight: 700,
+
             margin: '0 0 24px',
+
             color: TEXT_MUTED,
           }}
         >
@@ -254,6 +286,7 @@ function Welcome({ onNext }) {
           onClick={onNext}
           style={{
             width: '100%',
+
             padding: '16px',
 
             borderRadius: '16px',
@@ -268,9 +301,11 @@ function Welcome({ onNext }) {
 
             background: GRADIENT,
 
-            boxShadow: '0 8px 20px rgba(167,139,250,0.16)',
+            boxShadow:
+              '0 8px 20px rgba(167,139,250,0.16)',
 
-            transform: 'translateZ(0)',
+            position: 'relative',
+            zIndex: 2,
           }}
         >
           <span
@@ -290,7 +325,7 @@ function Welcome({ onNext }) {
           />
         </button>
       </div>
-    </ScreenWrapper>
+    </div>
   );
 }
 
