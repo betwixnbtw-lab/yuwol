@@ -28,7 +28,7 @@ function Welcome({ onNext }) {
         paddingLeft: '24px',
         paddingRight: '24px',
 
-        /* InviteCode 화면이랑 맞춤 */
+        /* InviteCode랑 동일 */
         paddingTop: 'max(48px, env(safe-area-inset-top))',
         paddingBottom: 'max(20px, env(safe-area-inset-bottom))',
 
@@ -41,19 +41,13 @@ function Welcome({ onNext }) {
           position: 'absolute',
           top: '-128px',
           right: '-80px',
-
           width: '320px',
           height: '320px',
-
           borderRadius: '50%',
-
           background:
             'radial-gradient(circle,#a78bfa 0%,transparent 70%)',
-
           filter: 'blur(70px)',
-
           opacity: 0.25,
-
           pointerEvents: 'none',
         }}
       />
@@ -63,19 +57,13 @@ function Welcome({ onNext }) {
           position: 'absolute',
           top: '33%',
           left: '-128px',
-
           width: '288px',
           height: '288px',
-
           borderRadius: '50%',
-
           background:
             'radial-gradient(circle,#6ee7b7 0%,transparent 70%)',
-
           filter: 'blur(70px)',
-
           opacity: 0.18,
-
           pointerEvents: 'none',
         }}
       />
@@ -85,19 +73,13 @@ function Welcome({ onNext }) {
           position: 'absolute',
           bottom: '-80px',
           right: '10%',
-
           width: '280px',
           height: '280px',
-
           borderRadius: '50%',
-
           background:
             'radial-gradient(circle,#f9a8d4 0%,transparent 70%)',
-
           filter: 'blur(80px)',
-
           opacity: 0.2,
-
           pointerEvents: 'none',
         }}
       />
@@ -107,65 +89,48 @@ function Welcome({ onNext }) {
           position: 'absolute',
           bottom: '-60px',
           left: '10%',
-
           width: '260px',
           height: '260px',
-
           borderRadius: '50%',
-
           background:
             'radial-gradient(circle,#a78bfa 0%,transparent 70%)',
-
           filter: 'blur(80px)',
-
           opacity: 0.15,
-
           pointerEvents: 'none',
         }}
       />
 
-      {/* 상단 */}
+      {/* 상단 문구 위치 = InviteCode Step 위치 */}
       <div
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-
+          marginTop: '24px',
           position: 'relative',
           zIndex: 1,
-
           flexShrink: 0,
-
-          /* 살짝 아래 */
-          marginTop: '10px',
         }}
       >
-        <div
-          style={{
-            width: '6px',
-            height: '6px',
-            borderRadius: '50%',
-            background: GRADIENT,
-          }}
-        />
-
         <p
           style={{
-            fontSize: '10px',
+            fontSize: '11px',
             letterSpacing: '0.3em',
             fontWeight: 900,
             textTransform: 'uppercase',
 
-            color: TEXT_MUTED,
+            margin: '0',
 
-            margin: 0,
+            color: 'transparent',
+
+            background: GRADIENT,
+
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
           }}
         >
           Vocal Practice Manager
         </p>
       </div>
 
-      {/* 캐릭터 */}
+      {/* 중앙 캐릭터 */}
       <div
         style={{
           flex: 1,
@@ -177,8 +142,8 @@ function Welcome({ onNext }) {
           position: 'relative',
           zIndex: 1,
 
-          /* 전체를 아래로 */
-          marginTop: '28px',
+          /* 정확히 가운데 */
+          marginTop: '-10px',
         }}
       >
         <div
@@ -221,11 +186,10 @@ function Welcome({ onNext }) {
         style={{
           position: 'relative',
           zIndex: 1,
-
           flexShrink: 0,
 
-          /* 버튼영역은 그대로 */
-          marginBottom: '4px',
+          /* 버튼 위치 InviteCode와 맞춤 */
+          marginBottom: '0px',
         }}
       >
         <p
@@ -289,6 +253,7 @@ function Welcome({ onNext }) {
           당신은 매일 연습하고 있는가.
         </p>
 
+        {/* 버튼 */}
         <button
           onClick={onNext}
           style={{
@@ -309,7 +274,7 @@ function Welcome({ onNext }) {
             background: GRADIENT,
 
             boxShadow:
-              '0 8px 24px rgba(167,139,250,0.22)',
+              '0 8px 24px rgba(167,139,250,.22)',
           }}
         >
           <span
