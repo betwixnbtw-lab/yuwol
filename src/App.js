@@ -26,8 +26,8 @@ function Welcome({ onNext }) {
         paddingLeft: '28px',
         paddingRight: '28px',
 
-        /* 전체 살짝 아래로 */
-        paddingTop: '52px',
+        /* 상단 여백 살짝 줄임 */
+        paddingTop: '36px',
         paddingBottom: '24px',
 
         boxSizing: 'border-box',
@@ -166,7 +166,10 @@ function Welcome({ onNext }) {
       {/* 중간 */}
       <div
         style={{
-          height: '280px',
+          height: '320px',
+
+          /* 캐릭터 전체 아래로 */
+          marginTop: '28px',
 
           display: 'flex',
           alignItems: 'center',
@@ -216,7 +219,7 @@ function Welcome({ onNext }) {
         style={{
           marginTop: 'auto',
 
-          /* 하단 섹션 살짝 위로 */
+          /* 하단 영역만 위로 */
           transform: 'translateY(-28px)',
 
           position: 'relative',
