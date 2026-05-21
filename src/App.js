@@ -19,41 +19,60 @@ function Welcome({ onNext }) {
 
         background: '#000',
 
-        position: 'relative',
-
-        overflow: 'hidden',
-
-        paddingLeft: '28px',
-        paddingRight: '28px',
-
-        paddingTop: '36px',
-        paddingBottom: '24px',
-
-        boxSizing: 'border-box',
-
         display: 'flex',
         flexDirection: 'column',
 
-        /* 전체 화면 자체를 아래로 */
-        transform: 'translateY(32px)',
+        position: 'relative',
+        overflow: 'hidden',
+
+        paddingLeft: '24px',
+        paddingRight: '24px',
+
+        /* InviteCode 화면이랑 맞춤 */
+        paddingTop: 'max(48px, env(safe-area-inset-top))',
+        paddingBottom: 'max(20px, env(safe-area-inset-bottom))',
+
+        boxSizing: 'border-box',
       }}
     >
       {/* Glow */}
       <div
         style={{
           position: 'absolute',
-          top: '-90px',
-          right: '-50px',
+          top: '-128px',
+          right: '-80px',
 
-          width: '240px',
-          height: '240px',
+          width: '320px',
+          height: '320px',
 
           borderRadius: '50%',
 
           background:
-            'radial-gradient(circle,#a78bfa 0%,transparent 55%)',
+            'radial-gradient(circle,#a78bfa 0%,transparent 70%)',
 
-          filter: 'blur(50px)',
+          filter: 'blur(70px)',
+
+          opacity: 0.25,
+
+          pointerEvents: 'none',
+        }}
+      />
+
+      <div
+        style={{
+          position: 'absolute',
+          top: '33%',
+          left: '-128px',
+
+          width: '288px',
+          height: '288px',
+
+          borderRadius: '50%',
+
+          background:
+            'radial-gradient(circle,#6ee7b7 0%,transparent 70%)',
+
+          filter: 'blur(70px)',
 
           opacity: 0.18,
 
@@ -64,42 +83,20 @@ function Welcome({ onNext }) {
       <div
         style={{
           position: 'absolute',
-          top: '30%',
-          left: '-90px',
+          bottom: '-80px',
+          right: '10%',
 
-          width: '220px',
-          height: '220px',
-
-          borderRadius: '50%',
-
-          background:
-            'radial-gradient(circle,#6ee7b7 0%,transparent 55%)',
-
-          filter: 'blur(50px)',
-
-          opacity: 0.14,
-
-          pointerEvents: 'none',
-        }}
-      />
-
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '-70px',
-          right: '8%',
-
-          width: '230px',
-          height: '230px',
+          width: '280px',
+          height: '280px',
 
           borderRadius: '50%',
 
           background:
-            'radial-gradient(circle,#f9a8d4 0%,transparent 55%)',
+            'radial-gradient(circle,#f9a8d4 0%,transparent 70%)',
 
-          filter: 'blur(55px)',
+          filter: 'blur(80px)',
 
-          opacity: 0.15,
+          opacity: 0.2,
 
           pointerEvents: 'none',
         }}
@@ -109,19 +106,19 @@ function Welcome({ onNext }) {
         style={{
           position: 'absolute',
           bottom: '-60px',
-          left: '8%',
+          left: '10%',
 
-          width: '220px',
-          height: '220px',
+          width: '260px',
+          height: '260px',
 
           borderRadius: '50%',
 
           background:
-            'radial-gradient(circle,#a78bfa 0%,transparent 55%)',
+            'radial-gradient(circle,#a78bfa 0%,transparent 70%)',
 
-          filter: 'blur(55px)',
+          filter: 'blur(80px)',
 
-          opacity: 0.12,
+          opacity: 0.15,
 
           pointerEvents: 'none',
         }}
@@ -136,6 +133,11 @@ function Welcome({ onNext }) {
 
           position: 'relative',
           zIndex: 1,
+
+          flexShrink: 0,
+
+          /* 살짝 아래 */
+          marginTop: '10px',
         }}
       >
         <div
@@ -174,22 +176,25 @@ function Welcome({ onNext }) {
 
           position: 'relative',
           zIndex: 1,
+
+          /* 전체를 아래로 */
+          marginTop: '28px',
         }}
       >
         <div
           style={{
             position: 'absolute',
 
-            width: '220px',
-            height: '220px',
+            width: '240px',
+            height: '240px',
 
             borderRadius: '50%',
 
             background: GRADIENT,
 
-            filter: 'blur(45px)',
+            filter: 'blur(55px)',
 
-            opacity: 0.18,
+            opacity: 0.2,
           }}
         />
 
@@ -197,8 +202,8 @@ function Welcome({ onNext }) {
           src="/yuwol.png"
           alt="유월이"
           style={{
-            width: '220px',
-            height: '220px',
+            width: '235px',
+            height: '235px',
 
             objectFit: 'contain',
 
@@ -206,7 +211,7 @@ function Welcome({ onNext }) {
             zIndex: 1,
 
             filter:
-              'drop-shadow(0 0 12px rgba(167,139,250,0.28))',
+              'drop-shadow(0 0 14px rgba(167,139,250,0.28))',
           }}
         />
       </div>
@@ -216,6 +221,11 @@ function Welcome({ onNext }) {
         style={{
           position: 'relative',
           zIndex: 1,
+
+          flexShrink: 0,
+
+          /* 버튼영역은 그대로 */
+          marginBottom: '4px',
         }}
       >
         <p
@@ -284,7 +294,7 @@ function Welcome({ onNext }) {
           style={{
             width: '100%',
 
-            padding: '16px',
+            padding: '14px',
 
             borderRadius: '16px',
             border: 'none',
@@ -344,5 +354,9 @@ export default function App() {
     );
   }
 
-  return <Welcome onNext={() => setScreen('invite')} />;
+  return (
+    <Welcome
+      onNext={() => setScreen('invite')}
+    />
+  );
 }
