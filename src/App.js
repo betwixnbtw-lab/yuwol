@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+
 import InviteCode from './InviteCode';
 import AboutYou from './AboutYou';
 
@@ -14,8 +15,6 @@ function Welcome({ onNext }) {
     <div
       style={{
         width: '100%',
-
-        /* 핵심 */
         minHeight: '100dvh',
 
         background: '#000',
@@ -25,20 +24,18 @@ function Welcome({ onNext }) {
 
         position: 'relative',
 
-        /* 스크롤 제거 */
         overflow: 'hidden',
 
         paddingLeft: '28px',
         paddingRight: '28px',
 
-        /* 기존보다 살짝 축소 */
         paddingTop: '36px',
         paddingBottom: '20px',
 
         boxSizing: 'border-box',
       }}
     >
-      {/* 배경 Glow */}
+      {/* Glow */}
       <div
         style={{
           position: 'absolute',
@@ -155,7 +152,9 @@ function Welcome({ onNext }) {
             letterSpacing: '0.3em',
             fontWeight: 900,
             textTransform: 'uppercase',
+
             color: TEXT_MUTED,
+
             margin: 0,
           }}
         >
@@ -166,7 +165,7 @@ function Welcome({ onNext }) {
       {/* 캐릭터 */}
       <div
         style={{
-          flex: 1,
+          flex: 0.8,
 
           display: 'flex',
           alignItems: 'center',
@@ -174,6 +173,9 @@ function Welcome({ onNext }) {
 
           position: 'relative',
           zIndex: 1,
+
+          paddingTop: '20px',
+          paddingBottom: '20px',
         }}
       >
         <div
