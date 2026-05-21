@@ -15,6 +15,9 @@ export default function App() {
       position: 'relative',
       overflow: 'hidden',
       padding: '0 28px 40px'
+    paddingTop: 'env(safe-area-inset-top)',
+paddingBottom: 'env(safe-area-inset-bottom)',
+
     }}>
 
       {/* 글로우 */}
