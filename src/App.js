@@ -18,7 +18,9 @@ function Welcome({ onNext }) {
     }}>
       <div style={{ position:'absolute', top:'-100px', right:'-60px', width:'300px', height:'300px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(70px)', opacity:0.4, pointerEvents:'none' }} />
       <div style={{ position:'absolute', top:'30%', left:'-100px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,#6ee7b7 0%,transparent 70%)', filter:'blur(70px)', opacity:0.3, pointerEvents:'none' }} />
-      <div style={{ position:'absolute', bottom:'0', right:'20%', width:'260px', height:'260px', borderRadius:'50%', background:'radial-gradient(circle,#f9a8d4 0%,transparent 70%)', filter:'blur(70px)', opacity:0.3, pointerEvents:'none' }} />
+      <div style={{ position:'absolute', bottom:'-80px', right:'10%', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,#f9a8d4 0%,transparent 70%)', filter:'blur(80px)', opacity:0.35, pointerEvents:'none' }} />
+      <div style={{ position:'absolute', bottom:'-60px', left:'10%', width:'260px', height:'260px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(80px)', opacity:0.25, pointerEvents:'none' }} />
+
       <div style={{ display:'flex', alignItems:'center', gap:'8px', position:'relative', zIndex:1, flexShrink:0 }}>
         <div style={{ width:'6px', height:'6px', borderRadius:'50%', background:GRADIENT }} />
         <p style={{ fontSize:'10px', letterSpacing:'0.3em', fontWeight:900, textTransform:'uppercase', color:TEXT_MUTED, margin:0 }}>
@@ -52,9 +54,7 @@ function Welcome({ onNext }) {
 
 export default function App() {
   const [screen, setScreen] = useState('welcome');
-
   if (screen === 'invite') return <InviteCode onNext={() => setScreen('about')} onBack={() => setScreen('welcome')} />;
   if (screen === 'about') return <AboutYou onNext={() => setScreen('welcome')} onBack={() => setScreen('invite')} />;
-
   return <Welcome onNext={() => setScreen('invite')} />;
 }
