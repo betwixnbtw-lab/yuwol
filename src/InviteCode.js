@@ -48,34 +48,27 @@ export default function InviteCode({ onNext, onBack }) {
   ];
 
   return (
-    <div style={{
-      width: '100%', height: '100dvh', background: '#000', display: 'flex',
-      flexDirection: 'column', position: 'relative', overflow: 'hidden',
-      paddingLeft: '24px', paddingRight: '24px',
-      paddingTop: 'max(48px, env(safe-area-inset-top))',
-      paddingBottom: 'max(20px, env(safe-area-inset-bottom))',
-      fontFamily: "'Pretendard', -apple-system, sans-serif",
-    }}>
+    <div style={{ width:'100%', minHeight:'100dvh', background:'#000', display:'flex', flexDirection:'column', position:'relative', overflow:'hidden', paddingLeft:'24px', paddingRight:'24px', paddingTop:'max(48px, env(safe-area-inset-top))', paddingBottom:'max(20px, env(safe-area-inset-bottom))', fontFamily:"'Pretendard',-apple-system,sans-serif" }}>
       <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800;12..96,900&display=swap" rel="stylesheet" />
       <style>{`
-        .display { font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: -0.04em; }
-        .mono { font-family: 'JetBrains Mono', monospace; }
-        @keyframes glow-pulse { 0%,100%{opacity:.3;transform:scale(1)} 50%{opacity:.5;transform:scale(1.1)} }
+        .display { font-family:'Bricolage Grotesque',sans-serif; letter-spacing:-0.04em; }
+        .mono { font-family:'JetBrains Mono',monospace; }
+        @keyframes glow-pulse { 0%,100%{opacity:.3} 50%{opacity:.5} }
         @keyframes fade-up { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
         @keyframes pop { 0%{opacity:0;transform:scale(0.7)} 50%{transform:scale(1.08)} 100%{opacity:1;transform:scale(1)} }
-        .glow-anim { animation: glow-pulse 3s ease-in-out infinite; }
-        .fade-up { animation: fade-up 0.6s ease-out both; }
-        .pop { animation: pop 0.5s ease-out both; }
+        .glow-anim { animation:glow-pulse 3s ease-in-out infinite; }
+        .fade-up { animation:fade-up 0.6s ease-out both; }
+        .pop { animation:pop 0.5s ease-out both; }
       `}</style>
 
       <div className="glow-anim" style={{ position:'absolute', top:'-128px', right:'-80px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(70px)', pointerEvents:'none' }} />
       <div className="glow-anim" style={{ position:'absolute', top:'33%', left:'-128px', width:'288px', height:'288px', borderRadius:'50%', background:'radial-gradient(circle,#6ee7b7 0%,transparent 70%)', filter:'blur(70px)', pointerEvents:'none', animationDelay:'1s' }} />
-      <div className="glow-anim" style={{ position:'absolute', bottom:'-80px', right:'10%', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,#f9a8d4 0%,transparent 70%)', filter:'blur(80px)', opacity:0.35, pointerEvents:'none', animationDelay:'0.5s' }} />
-      <div className="glow-anim" style={{ position:'absolute', bottom:'-60px', left:'10%', width:'260px', height:'260px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(80px)', opacity:0.25, pointerEvents:'none', animationDelay:'1.5s' }} />
+      <div className="glow-anim" style={{ position:'absolute', bottom:'-80px', right:'10%', width:'300px', height:'300px', borderRadius:'50%', background:'radial-gradient(circle,#f9a8d4 0%,transparent 70%)', filter:'blur(80px)', opacity:0.4, pointerEvents:'none', animationDelay:'0.5s' }} />
+      <div className="glow-anim" style={{ position:'absolute', bottom:'-60px', left:'5%', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,#a78bfa 0%,transparent 70%)', filter:'blur(80px)', opacity:0.3, pointerEvents:'none', animationDelay:'1.5s' }} />
 
       {mounted && (
-        <div className="fade-up" style={{ display:'flex', alignItems:'center', justifyContent:'space-between', flexShrink:0, animationDelay:'0.05s' }}>
+        <div className="fade-up" style={{ display:'flex', alignItems:'center', justifyContent:'space-between', flexShrink:0 }}>
           <button onClick={onBack} style={{ width:'40px', height:'40px', borderRadius:'50%', background:'rgba(255,255,255,0.05)', border:'none', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center' }}>
             <ArrowLeft size={18} color={TEXT} />
           </button>
@@ -89,16 +82,12 @@ export default function InviteCode({ onNext, onBack }) {
 
       {mounted && (
         <div style={{ marginTop:'24px', flexShrink:0 }}>
-          <p className="display fade-up" style={{ fontSize:'11px', letterSpacing:'0.3em', fontWeight:900, textTransform:'uppercase', margin:'0 0 12px', color:'transparent', background:GRADIENT, WebkitBackgroundClip:'text', backgroundClip:'text', animationDelay:'0.1s' }}>
-            Step 1 of 5
-          </p>
+          <p className="display fade-up" style={{ fontSize:'11px', letterSpacing:'0.3em', fontWeight:900, textTransform:'uppercase', margin:'0 0 12px', color:'transparent', background:GRADIENT, WebkitBackgroundClip:'text', backgroundClip:'text', animationDelay:'0.1s' }}>Step 1 of 5</p>
           <h1 className="display fade-up" style={{ fontSize:'34px', fontWeight:900, lineHeight:1, margin:'0 0 8px', color:TEXT, animationDelay:'0.15s' }}>
             Enter your{' '}
             <span style={{ background:GRADIENT, WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>Code.</span>
           </h1>
-          <p className="fade-up" style={{ fontSize:'12px', fontWeight:700, margin:0, color:TEXT_MUTED, animationDelay:'0.2s' }}>
-            코드를 입력해.
-          </p>
+          <p className="fade-up" style={{ fontSize:'12px', fontWeight:700, margin:0, color:TEXT_MUTED, animationDelay:'0.2s' }}>코드를 입력해.</p>
         </div>
       )}
 
@@ -119,9 +108,7 @@ export default function InviteCode({ onNext, onBack }) {
             </div>
           ) : (
             <div className="pop" style={{ textAlign:'center' }}>
-              <p className="display" style={{ fontSize:'46px', fontWeight:900, background:GRADIENT, WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text', letterSpacing:'-0.04em', lineHeight:1, margin:0 }}>
-                {CORRECT_NAME}
-              </p>
+              <p className="display" style={{ fontSize:'46px', fontWeight:900, background:GRADIENT, WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text', letterSpacing:'-0.04em', lineHeight:1, margin:0 }}>{CORRECT_NAME}</p>
               <div style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:'6px', marginTop:'12px' }}>
                 <Check size={12} color="#6ee7b7" strokeWidth={3} />
                 <p className="display" style={{ fontSize:'11px', fontWeight:900, textTransform:'uppercase', letterSpacing:'0.25em', color:'#6ee7b7', margin:0 }}>Success</p>
@@ -173,7 +160,7 @@ export default function InviteCode({ onNext, onBack }) {
 
       {mounted && (
         <button disabled={!verified} onClick={() => verified && onNext()} className="fade-up"
-          style={{ width:'100%', padding:'14px', borderRadius:'16px', border:'none', cursor: verified ? 'pointer' : 'not-allowed', display:'flex', alignItems:'center', justifyContent:'center', gap:'8px', background: verified ? GRADIENT : '#1a1a1a', boxShadow: verified ? '0 8px 32px rgba(167,139,250,.3)' : 'none', opacity: verified ? 1 : 0.5, marginTop:'16px', flexShrink:0, animationDelay:'0.5s', transition:'all 0.2s' }}>
+          style={{ width:'100%', padding:'14px', borderRadius:'16px', border:'none', cursor: verified ? 'pointer' : 'not-allowed', display:'flex', alignItems:'center', justifyContent:'center', gap:'8px', background: verified ? GRADIENT : '#1a1a1a', boxShadow: verified ? '0 8px 32px rgba(167,139,250,.3)' : 'none', opacity: verified ? 1 : 0.5, marginTop:'16px', flexShrink:0, transition:'all 0.2s' }}>
           <span className="display" style={{ fontSize:'16px', fontWeight:900, color: verified ? '#000' : '#444' }}>다음</span>
           <ArrowRight size={18} strokeWidth={3} color={verified ? '#000' : '#444'} />
         </button>
